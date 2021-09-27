@@ -5,4 +5,4 @@ metadata:
 spec:
   containers:
     - name: wordpress
-      image: wordpress:latest
+      image: wordpress:5.8.1-fpm

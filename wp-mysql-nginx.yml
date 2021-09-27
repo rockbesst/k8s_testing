@@ -12,7 +12,7 @@ spec:
       image: mysql:5.7
       env:
         - name: MYSQL_ROOT_PASSWORD
-          value: $MYSQL_ROOT_PASSWORD
+          value: "qwerty123"
     - name: wordpress
       image: wordpress:latest
       

@@ -6,6 +6,8 @@ spec:
   containers:
     - name: nginx
       image: nginx:latest
+      ports:
+        - containerPort: 80
     - name: mysql
       image: mysql:5.7
     - name: wordpress

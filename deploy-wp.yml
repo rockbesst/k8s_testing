@@ -16,13 +16,12 @@ spec:
     metadata:
       labels:
         app: wp-test
+        role: wordpress
     spec:
       containers:
-      - name: nginx
-        image: nginx:latest
+      - name: wordpress
+        image: wordpress:5.8.1-fpm
         resources:
           limits:
             memory: "128Mi"
             cpu: "500m"
-        ports:
-          - containerPort: 80

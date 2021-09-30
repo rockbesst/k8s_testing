@@ -86,7 +86,7 @@ data:
       access_log	/var/log/nginx/access.log main;
       server {
           listen       80;
-          server_name  kube.test;
+          server_name  _;
           location / {
             proxy_pass http://wp-service;
             #  index  index.html index.htm;

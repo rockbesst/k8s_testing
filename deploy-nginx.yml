@@ -57,7 +57,8 @@ spec:
             - key: nginx.conf
               path: nginx.conf
       - name: log
-        emptyDir: {}
+        hostPath:
+          path: /home/kube/log
 ---
 
 apiVersion: v1

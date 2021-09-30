@@ -89,7 +89,7 @@ data:
           listen       80;
           server_name  _;
           location / {
-            proxy_pass http://wp-service;
+            fastcgi_pass wp-service:80;
             #  index  index.html index.htm;
           }
       }

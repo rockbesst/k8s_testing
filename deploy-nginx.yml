@@ -84,7 +84,7 @@ data:
           listen       80;
           server_name  kube.test;
           location / {
-            proxy_pass http://wordpress;
+            proxy_pass http://wp-service;
             #  index  index.html index.htm;
           }
       }

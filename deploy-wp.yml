@@ -46,3 +46,17 @@ spec:
             configMapKeyRef:
               name: config-wp     
               key: DB_HOST
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: wp-service
+  labels:
+    app: wp-test
+spec:
+  selector:
+    role: wordpress
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 80

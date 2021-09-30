@@ -6,4 +6,4 @@ data:
   DB_NAME     : 'test-wp'
   DB_USER     : 'user'
   DB_PASSWORD : 'qwe123rty'
-  DB_HOST     : 'mysql'
+  DB_HOST     : 'mysql-service'

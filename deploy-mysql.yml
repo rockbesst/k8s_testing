@@ -30,3 +30,17 @@ spec:
               cpu: "200m"
           ports:
             - containerPort: 3306
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mysql-service
+  labels:
+    app: wp-test
+spec:
+  selector:
+    role: database
+  ports:
+  - protocol: TCP
+    port: 3306
+    targetPort: 3306

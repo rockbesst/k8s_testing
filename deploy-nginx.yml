@@ -10,7 +10,7 @@ spec:
   - port: 80
     name: wp-test
     targetPort: 80
-    nodePort: 32756
+    nodePort: 31000
   selector:
     app: wp-test
 ---

@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
       - name: wordpress
-        image: wordpress:5.8.1-apache
+        image: wordpress:fpm-alpine
         resources:
           limits:
             memory: "128Mi"
@@ -58,5 +58,5 @@ spec:
     role: wordpress
   ports:
   - protocol: TCP
-    port: 8080
-    targetPort: 8080
+    port: 9000
+    targetPort: 9000

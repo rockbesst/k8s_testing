@@ -27,16 +27,19 @@ spec:
               cpu: "200m"
           ports:
             - containerPort: 3306
-          volumes:
-          - name: log
-            hostPath:
-              path: /home/kube/log/mysql
           env:
           - name: MYSQL_ROOT_PASSWORD 
             valueFrom:
               configMapKeyRef:
                 name: config-mysql     
                 key: MYSQL_ROOT_PASSWORD
+          volumeMounts:
+          - mountPath: /var/log/nginx/mysql
+            name: log-mysql
+      volumes:
+        - name: log-mysql
+          hostPath:
+            path: /home/kube/log/mysql
           
 ---
 apiVersion: v1

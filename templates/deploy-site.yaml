@@ -26,22 +26,22 @@ spec:
             memory: "128Mi"
             cpu: "200m"
         env:
-        - name: DB_NAME 
+        - name: WORDPRESS_DATABASE_NAME 
           valueFrom:
             configMapKeyRef:
               name: config-wp     
               key: WORDPRESS_DATABASE_NAME
-        - name: DB_USER 
+        - name: WORDPRESS_DATABASE_USER 
           valueFrom:
             configMapKeyRef:
               name: config-wp     
               key: WORDPRESS_DATABASE_USER
-        - name: DB_PASSWORD 
+        - name: WORDPRESS_DATABASE_PASSWORD 
           valueFrom:
             configMapKeyRef:
               name: config-wp     
               key: WORDPRESS_DATABASE_PASSWORD
-        - name: DB_HOST 
+        - name: WORDPRESS_DATABASE_HOST 
           valueFrom:
             configMapKeyRef:
               name: config-wp     

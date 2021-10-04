@@ -7,8 +7,8 @@ labels:
 imageFront: nginx:latest
 imageBack: bitnami/wordpress:latest
 imageDb: mysql:latest
-portTomcat: 8080
-portWp: 80
+portExt: 8080
+portInt: 80
 portDb: 3306
 portFront: 31000
 replicaCountFront: 1

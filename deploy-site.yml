@@ -1,0 +1,64 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: site-test
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: site-test
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: site-test
+        role: tomcat
+    spec:
+      containers:
+      - name: tomcat
+        image: tomcat:latest
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "200m"
+        # env:
+        # - name: DB_NAME 
+        #   valueFrom:
+        #     configMapKeyRef:
+        #       name: config-wp     
+        #       key: DB_NAME
+        # - name: DB_USER 
+        #   valueFrom:
+        #     configMapKeyRef:
+        #       name: config-wp     
+        #       key: DB_USER
+        # - name: DB_PASSWORD 
+        #   valueFrom:
+        #     configMapKeyRef:
+        #       name: config-wp     
+        #       key: DB_PASSWORD
+        # - name: DB_HOST 
+        #   valueFrom:
+        #     configMapKeyRef:
+        #       name: config-wp     
+        #       key: DB_HOST
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: site-service
+  labels:
+    app: site-test
+spec:
+  selector:
+    role: tomcat
+  ports:
+  - protocol: TCP
+    port: 8080
+    targetPort: 8080

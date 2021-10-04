@@ -3,16 +3,16 @@ kind: Service
 metadata:
   name: nginx
   labels:
-    app: wp-test
+    app: site-test
 spec:
   type: NodePort
   ports:
   - port: 80
-    name: wp-test
+    name: site-test
     targetPort: 80
     nodePort: 31000
   selector:
-    app: wp-test
+    app: site-test
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -22,7 +22,7 @@ spec:
   replicas: 2
   selector:
     matchLabels:
-      app: wp-test
+      app: site-test
   strategy:
     rollingUpdate:
       maxSurge: 1
@@ -31,7 +31,7 @@ spec:
   template:
     metadata:
       labels:
-        app: wp-test
+        app: site-test
         role: frontend
     spec:
       containers:
@@ -89,7 +89,7 @@ data:
           listen       80;
           server_name  _;
           location / {
-            proxy_pass http://wp-service;
+            proxy_pass http://site-service:8080;
             proxy_set_header Host $host;
             proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
             proxy_set_header X-Real-IP $remote_addr;

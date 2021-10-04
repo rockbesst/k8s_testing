@@ -6,7 +6,7 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: wp-test
+      app: site-test
   strategy:
     rollingUpdate:
       maxSurge: 1
@@ -15,7 +15,7 @@ spec:
   template:
     metadata:
       labels:
-        app: wp-test
+        app: site-test
         role: database
     spec:
       containers:
@@ -36,7 +36,7 @@ kind: Service
 metadata:
   name: mysql-service
   labels:
-    app: wp-test
+    app: site-test
 spec:
   selector:
     role: database

@@ -30,6 +30,12 @@ spec:
               cpu: "200m"
           ports:
             - containerPort: 3306
+          env:
+          - name: MYSQL_ROOT_PASSWORD 
+          valueFrom:
+            configMapKeyRef:
+              name: config-mysql     
+              key: MYSQL_ROOT_PASSWORD
 ---
 apiVersion: v1
 kind: Service

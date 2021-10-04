@@ -1,0 +1,14 @@
+metadata:
+  nameNginx: nginx-test
+  nameSite: site-test
+  nameDb: mysql-test
+  labels:
+    app: site
+spec:
+  imageVer: latest
+  portTomcat: 8080
+  portWeb: 80
+  portDb: 3306
+  portFront: 31000
+  replicaCount: 2
+  

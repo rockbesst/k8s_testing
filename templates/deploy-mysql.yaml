@@ -27,6 +27,10 @@ spec:
               cpu: "200m"
           ports:
             - containerPort: 3306
+          volumes:
+          - name: log
+            hostPath:
+              path: /home/kube/log/mysql
           env:
           - name: MYSQL_ROOT_PASSWORD 
             valueFrom:

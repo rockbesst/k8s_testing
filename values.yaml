@@ -1,16 +1,15 @@
-metadata:
-  nameNginx: nginx-test
-  nameSite: site-test
-  nameDb: mysql-test
-  labels:
-    app: site
-spec:
-  imageFront: nginx:latest
-  imageBack: bitnami/wordpress:latest
-  imageDb: mysql:latest
-  portTomcat: 8080
-  portWp: 80
-  portDb: 3306
-  portFront: 31000
-  replicaCount: 2
+nameNginx: nginx-test
+nameSite: site-test
+nameDb: mysql-test
+labels:
+  app: site
+
+imageFront: nginx:latest
+imageBack: bitnami/wordpress:latest
+imageDb: mysql:latest
+portTomcat: 8080
+portWp: 80
+portDb: 3306
+portFront: 31000
+replicaCount: 2
   

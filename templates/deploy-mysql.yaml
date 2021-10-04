@@ -1,9 +1,9 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .Values.metadata.nameDb }}
+  name: {{ .Values.nameDb }}
 spec:
-  replicas: {{ .Values.spec.replicaCount }}
+  replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
       role: database
@@ -15,12 +15,12 @@ spec:
   template:
     metadata:
       labels:
-        app: {{ .Values.metadata.labels.app }}
+        app: {{ .Values.labels.app }}
         role: database
     spec:
       containers:
         - name: mysql
-          image: {{ .Values.spec.imageDb }}
+          image: {{ .Values.imageDb }}
           env:
             - name: MYSQL_ROOT_PASSWORD
               value: "qwerty123"
@@ -36,11 +36,11 @@ kind: Service
 metadata:
   name: {{ .Release.Name }} -mysql-service
   labels:
-    app: {{ .Values.metadata.labels.app }}
+    app: {{ .Values.labels.app }}
 spec:
   selector:
     role: database
   ports:
   - protocol: TCP
-    port: {{ .Values.spec.portDb }}
-    targetPort: {{ .Values.spec.portDb }}
+    port: {{ .Values.portDb }}
+    targetPort: {{ .Values.portDb }}

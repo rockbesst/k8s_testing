@@ -1,12 +1,12 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .Value.metadata.nameSite }}
+  name: {{ .Value.nameSite }}
 spec:
-  replicas: {{ .Values.spec.replicaCount }}
+  replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      app: {{ .Values.metadata.labels.app }}
+      app: {{ .Values.labels.app }}
   strategy:
     rollingUpdate:
       maxSurge: 1
@@ -15,12 +15,12 @@ spec:
   template:
     metadata:
       labels:
-        app: {{ .Values.metadata.labels.app }}
+        app: {{ .Values.labels.app }}
         role: tomcat
     spec:
       containers:
       - name: tomcat
-        image: {{ .Values.spec.imageBack }}
+        image: {{ .Values.imageBack }}
         resources:
           limits:
             memory: "128Mi"
@@ -54,11 +54,11 @@ kind: Service
 metadata:
   name: site-service
   labels:
-    app: {{ .Values.metadata.labels.app }}
+    app: {{ .Values.labels.app }}
 spec:
   selector:
     role: tomcat
   ports:
   - protocol: TCP
-    port: {{ .Values.spec.portWp }}
-    targetPort: {{ .Values.spec.portWp }}
+    port: {{ .Values.portWp }}
+    targetPort: {{ .Values.portWp }}

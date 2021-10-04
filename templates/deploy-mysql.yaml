@@ -21,9 +21,6 @@ spec:
       containers:
         - name: mysql
           image: {{ .Values.imageDb }}
-          env:
-            - name: MYSQL_ROOT_PASSWORD
-              value: "qwerty123"
           resources:
             limits:
               memory: "128Mi"

@@ -1,9 +1,9 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .Value.nameSite }}
+  name: {{ .Value.nameBack }}
 spec:
-  replicas: {{ .Values.replicaCount }}
+  replicas: {{ .Values.replicaCountBack }}
   selector:
     matchLabels:
       app: {{ .Values.labels.app }}
@@ -16,10 +16,10 @@ spec:
     metadata:
       labels:
         app: {{ .Values.labels.app }}
-        role: tomcat
+        role: backend
     spec:
       containers:
-      - name: tomcat
+      - name: backend
         image: {{ .Values.imageBack }}
         resources:
           limits:
@@ -57,7 +57,7 @@ metadata:
     app: {{ .Values.labels.app }}
 spec:
   selector:
-    role: tomcat
+    role: backend
   ports:
   - protocol: TCP
     port: {{ .Values.portWp }}

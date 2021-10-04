@@ -1,5 +1,5 @@
-nameNginx: nginx-test
-nameSite: site-test
+nameFront: nginx-test
+nameBack: site-test
 nameDb: mysql-test
 labels:
   app: site
@@ -11,5 +11,6 @@ portTomcat: 8080
 portWp: 80
 portDb: 3306
 portFront: 31000
-replicaCount: 2
-  
+replicaCountFront: 1
+replicaCountBack: 1
+replicaCountDb: 1

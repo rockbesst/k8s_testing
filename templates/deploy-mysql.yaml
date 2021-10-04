@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: {{ .Values.nameDb }}
 spec:
-  replicas: {{ .Values.replicaCount }}
+  replicas: {{ .Values.replicaCountDb }}
   selector:
     matchLabels:
       role: database

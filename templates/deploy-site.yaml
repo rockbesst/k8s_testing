@@ -46,6 +46,11 @@ spec:
             configMapKeyRef:
               name: config-wp     
               key: WORDPRESS_DATABASE_HOST
+        - name: MYSQL_ROOT_PASSWORD 
+          valueFrom:
+            configMapKeyRef:
+              name: config-mysql     
+              key: MYSQL_ROOT_PASSWORD
         ports:
         - containerPort: 80
 ---

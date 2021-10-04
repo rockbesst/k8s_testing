@@ -23,7 +23,7 @@ spec:
           image: {{ .Values.imageDb }}
           resources:
             limits:
-              memory: "128Mi"
+              memory: "256Mi"
               cpu: "200m"
           ports:
             - containerPort: 3306

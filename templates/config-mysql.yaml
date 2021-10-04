@@ -3,4 +3,4 @@ kind: ConfigMap
 metadata:
   name: config-mysql
 data:
-  MYSQL_ROOT_PASSWORD: 'qwe123rty'
+  MYSQL_ROOT_PASSWORD: qwe123rty

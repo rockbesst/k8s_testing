@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
         - name: mysql
-          image: mysql:{{ .Values.spec.imageVer}}
+          image: {{ .Values.spec.imageDb }}
           env:
             - name: MYSQL_ROOT_PASSWORD
               value: "qwerty123"

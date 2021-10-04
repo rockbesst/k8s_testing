@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
       - name: tomcat
-        image: tomcat:{{ .Values.spec.imageVer }}
+        image: {{ .Values.spec.imageBack }}
         resources:
           limits:
             memory: "128Mi"
@@ -60,5 +60,5 @@ spec:
     role: tomcat
   ports:
   - protocol: TCP
-    port: {{ .Values.spec.portTomcat }}
-    targetPort: {{ .Values.spec.portTomcat }}
+    port: {{ .Values.spec.portWp }}
+    targetPort: {{ .Values.spec.portWp }}

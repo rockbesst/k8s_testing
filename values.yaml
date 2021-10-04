@@ -5,9 +5,11 @@ metadata:
   labels:
     app: site
 spec:
-  imageVer: latest
+  imageFront: nginx:latest
+  imageBack: bitnami/wordpress:latest
+  imageDb: mysql:latest
   portTomcat: 8080
-  portWeb: 80
+  portWp: 80
   portDb: 3306
   portFront: 31000
   replicaCount: 2

@@ -4,6 +4,6 @@ metadata:
   name: config-wp
 data:
   WORDPRESS_DATABASE_PASSWORD: 'qwe123rty'
-  WORDPRESS_DATABASE_NAME: 'test-wp'
+  WORDPRESS_DATABASE_NAME: 'test'
   WORDPRESS_DATABASE_USER: 'user'
   WORDPRESS_DATABASE_HOST: 'mysql-service'

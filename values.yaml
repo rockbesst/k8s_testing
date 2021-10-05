@@ -7,7 +7,7 @@ metadata:
 
 image:
   front : nginx:latest
-  back  : httpd:2.2-alpine
+  back  : php:apache
   db    : mysql:latest
 
 ports:

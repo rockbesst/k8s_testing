@@ -5,7 +5,7 @@ labels:
   app: site
 
 imageFront: nginx:latest
-imageBack: bitnami/wordpress:latest
+imageBack: wordpress:latest
 imageDb: mysql:latest
 portExt: 80
 portInt: 80

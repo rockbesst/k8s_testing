@@ -39,9 +39,11 @@ spec:
           hostPath:
             path: /home/kube/wordpress/
         - name: apache-conf
-          hostPath: /home/kube/apache/conf/
+          hostPath: 
+            path: /home/kube/apache/conf/
         - name: apache-log
-          hostPath: /home/kube/apache/log/
+          hostPath: 
+            path: /home/kube/apache/log/
 ---
 apiVersion: v1
 kind: Service

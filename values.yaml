@@ -18,7 +18,7 @@ replicaCountDb: 1
 limits:
   memoryFront : "128Mi"
   memoryBack  : "128Mi"
-  memoryDb    : "256Mi"
+  memoryDb    : "400Mi"
   cpuFront    : "200m"
   cpuBack     : "200m"
   cpuDb       : "200m"

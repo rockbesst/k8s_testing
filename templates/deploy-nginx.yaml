@@ -3,26 +3,26 @@ kind: Service
 metadata:
   name: front-service
   labels:
-    app: {{ .Values.labels.app }}
+    app: {{ .Values.metadata.labels.app }}
 spec:
   type: NodePort
   ports:
   - port: 80
     name: site-test
     targetPort: 80
-    nodePort: {{ .Values.portFront }}
+    nodePort: {{ .Values.ports.front }}
   selector:
     role: frontend
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .Values.nameFront }}
+  name: {{ .Values.metadata.nameFront }}
 spec:
-  replicas: {{ .Values.replicaCountFront }}
+  replicas: {{ .Values.replicas.front }}
   selector:
     matchLabels:
-      app: {{ .Values.labels.app }}
+      app: {{ .Values.metadata.labels.app }}
   strategy:
     rollingUpdate:
       maxSurge: 1
@@ -31,12 +31,12 @@ spec:
   template:
     metadata:
       labels:
-        app: {{ .Values.labels.app }}
+        app: {{ .Values.metadata.labels.app }}
         role: frontend
     spec:
       containers:
       - name: nginx
-        image: {{ .Values.imageFront }}
+        image: {{ .Values.image.front }}
         resources:
           limits:
             memory: {{ .Values.limits.memoryFront }}
@@ -89,7 +89,7 @@ data:
           listen       80;
           server_name  _;
           location / {
-            proxy_pass http://site-service:80;
+            proxy_pass http://site-service:{{ .Values.ports.web }};
             proxy_set_header Host $host;
             proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
             proxy_set_header X-Real-IP $remote_addr;

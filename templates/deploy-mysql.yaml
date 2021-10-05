@@ -1,9 +1,9 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .Values.nameDb }}
+  name: {{ .Values.metadata.nameDb }}
 spec:
-  replicas: {{ .Values.replicaCountDb }}
+  replicas: {{ .Values.replicas.db }}
   selector:
     matchLabels:
       role: database
@@ -15,18 +15,18 @@ spec:
   template:
     metadata:
       labels:
-        app: {{ .Values.labels.app }}
+        app: {{ .Values.metadata.labels.app }}
         role: database
     spec:
       containers:
         - name: mysql
-          image: {{ .Values.imageDb }}
+          image: {{ .Values.image.db }}
           resources:
             limits:
               memory: {{ .Values.limits.memoryDb }}
               cpu: {{ .Values.limits.cpuDb }}
           ports:
-            - containerPort: {{ .Values.portDb }}
+            - containerPort: {{ .Values.ports.db }}
           env:
           - name: MYSQL_ROOT_PASSWORD 
             valueFrom:
@@ -39,11 +39,11 @@ kind: Service
 metadata:
   name: mysql-service
   labels:
-    app: {{ .Values.labels.app }}
+    app: {{ .Values.metadata.labels.app }}
 spec:
   selector:
     role: database
   ports:
   - protocol: TCP
-    port: {{ .Values.portDb }}
-    targetPort: {{ .Values.portDb }}
+    port: {{ .Values.ports.db }}
+    targetPort: {{ .Values.ports.db }}

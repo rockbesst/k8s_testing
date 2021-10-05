@@ -1,9 +1,0 @@
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: config-wp
-data:
-  WORDPRESS_DATABASE_PASSWORD: 'qwe123rty'
-  WORDPRESS_DATABASE_NAME: 'test'
-  WORDPRESS_DATABASE_USER: 'root' #'user'
-  WORDPRESS_DATABASE_HOST: 'mysql-service'

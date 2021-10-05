@@ -1,19 +1,24 @@
-nameFront: nginx-test
-nameBack: site-test
-nameDb: mysql-test
-labels:
-  app: site
+metadata:
+  nameFront : nginx-test
+  nameBack  : site-test
+  nameDb    : mysql-test
+  labels:
+    app: site
 
-imageFront: nginx:latest
-imageBack: nginxdemos/hello
-imageDb: mysql:latest
-portExt: 80
-portInt: 80
-portDb: 3306
-portFront: 31000
-replicaCountFront: 1
-replicaCountBack: 1
-replicaCountDb: 1
+image:
+  front : nginx:latest
+  back  : httpd:2.2-alpine
+  db    : mysql:latest
+  
+ports:
+  web   : 80
+  db    : 3306
+  front : 31000
+
+replicas:
+  front : 1
+  back  : 1
+  db    : 1
 
 limits:
   memoryFront : "128Mi"

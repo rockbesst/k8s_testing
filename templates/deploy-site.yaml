@@ -1,12 +1,12 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .Values.nameBack }}
+  name: {{ .Values.metadata.nameBack }}
 spec:
-  replicas: {{ .Values.replicaCountBack }}
+  replicas: {{ .Values.replicas.back }}
   selector:
     matchLabels:
-      app: {{ .Values.labels.app }}
+      app: {{ .Values.metadata.labels.app }}
   strategy:
     rollingUpdate:
       maxSurge: 1
@@ -15,12 +15,12 @@ spec:
   template:
     metadata:
       labels:
-        app: {{ .Values.labels.app }}
+        app: {{ .Values.metadata.labels.app }}
         role: backend
     spec:
       containers:
       - name: backend
-        image: {{ .Values.imageBack }}
+        image: {{ .Values.image.back }}
         resources:
           limits:
             memory: {{ .Values.limits.memoryBack }}
@@ -28,23 +28,23 @@ spec:
         ports:
         - containerPort: 80
         volumeMounts:
-          - mountPath: /etc/nginx/conf.d/
-            name: nginx-back
+          - mountPath: /usr/local/apache2/htdocs/
+            name: wp-files
       volumes:
-        - name: nginx-back
+        - name: wp-files
           hostPath:
-            path: /home/kube/nginx-conf/
+            path: /home/kube/wordpress/
 ---
 apiVersion: v1
 kind: Service
 metadata:
   name: site-service
   labels:
-    app: {{ .Values.labels.app }}
+    app: {{ .Values.metadata.labels.app }}
 spec:
   selector:
     role: backend
   ports:
   - protocol: TCP
-    port: {{ .Values.portExt }}
-    targetPort: {{ .Values.portInt }}
+    port: {{ .Values.ports.web }}
+    targetPort: 8080

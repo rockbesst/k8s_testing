@@ -5,7 +5,7 @@ labels:
   app: site
 
 imageFront: nginx:latest
-imageBack: wordpress:php7.4
+imageBack: nginxdemos/hello
 imageDb: mysql:latest
 portExt: 80
 portInt: 80

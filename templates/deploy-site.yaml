@@ -26,7 +26,7 @@ spec:
             memory: {{ .Values.limits.memoryBack }}
             cpu: {{ .Values.limits.cpuBack }}
         ports:
-        - containerPort: 80
+        - containerPort: 8080
         volumeMounts:
           - mountPath: /usr/local/apache2/htdocs/
             name: wp-files
@@ -46,5 +46,5 @@ spec:
     role: backend
   ports:
   - protocol: TCP
-    port: {{ .Values.ports.web }}
+    port: 8080
     targetPort: 8080

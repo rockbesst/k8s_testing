@@ -9,7 +9,7 @@ image:
   front : nginx:latest
   back  : httpd:2.2-alpine
   db    : mysql:latest
-  
+
 ports:
   web   : 80
   db    : 3306
@@ -27,3 +27,11 @@ limits:
   cpuFront    : "200m"
   cpuBack     : "200m"
   cpuDb       : "200m"
+
+
+path:
+  nginxConf: /etc/nginx/
+  nginxLog: /var/log/nginx/
+  apacheConf: /usr/local/apache2/conf/
+  apacheLog: /var/log/apache/
+  siteFiles: /usr/local/apache2/htdocs/

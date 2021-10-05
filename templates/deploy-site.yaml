@@ -33,6 +33,7 @@ spec:
           - mountPath: {{ .Values.path.apacheConf }}
             name: apache-conf
           - mountPath: {{ .Values.path.apacheLog }}
+            name: apache-log
       volumes:
         - name: wp-files
           hostPath:

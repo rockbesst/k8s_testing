@@ -38,10 +38,10 @@ spec:
         - name: wp-files
           hostPath:
             path: /home/kube/wordpress/
-        - name: apache-conf
+        - name: backend-nginx-conf
           hostPath: 
             path: /home/kube/backend/conf/
-        - name: apache-log
+        - name: backend-nginx-log
           hostPath: 
             path: /home/kube/backend/log/
 ---

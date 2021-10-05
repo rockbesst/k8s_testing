@@ -30,20 +30,20 @@ spec:
         volumeMounts:
           - mountPath: {{ .Values.path.siteFiles }}
             name: wp-files
-          - mountPath: {{ .Values.path.apacheConf }}
-            name: apache-conf
-          - mountPath: {{ .Values.path.apacheLog }}
-            name: apache-log
+          - mountPath: {{ .Values.path.nginxConf }}
+            name: backend-nginx-conf
+          - mountPath: {{ .Values.path.nginxLog }}
+            name: backend-nginx-log
       volumes:
         - name: wp-files
           hostPath:
             path: /home/kube/wordpress/
         - name: apache-conf
           hostPath: 
-            path: /home/kube/apache/conf/
+            path: /home/kube/backend/conf/
         - name: apache-log
           hostPath: 
-            path: /home/kube/apache/log/
+            path: /home/kube/backend/log/
 ---
 apiVersion: v1
 kind: Service

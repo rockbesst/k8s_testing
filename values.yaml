@@ -34,4 +34,4 @@ path:
   nginxLog: /var/log/nginx/
   apacheConf: /usr/local/apache2/conf/
   apacheLog: /var/log/apache/
-  siteFiles: /var/www/html/
+  siteFiles: /var/www/

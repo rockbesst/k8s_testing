@@ -41,7 +41,7 @@ spec:
             configMapKeyRef:
               name: config-wp     
               key: WORDPRESS_DATABASE_PASSWORD
-        - name: MARIADB_HOST #WORDPRESS_DATABASE_HOST 
+        - name: WORDPRESS_DATABASE_HOST 
           valueFrom:
             configMapKeyRef:
               name: config-wp     

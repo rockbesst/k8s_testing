@@ -25,39 +25,13 @@ spec:
           limits:
             memory: {{ .Values.limits.memoryBack }}
             cpu: {{ .Values.limits.cpuBack }}
-        env:
-        - name: WORDPRESS_DATABASE_NAME 
-          valueFrom:
-            configMapKeyRef:
-              name: config-wp     
-              key: WORDPRESS_DATABASE_NAME
-        - name: WORDPRESS_DATABASE_USER 
-          valueFrom:
-            configMapKeyRef:
-              name: config-wp     
-              key: WORDPRESS_DATABASE_USER
-        - name: WORDPRESS_DATABASE_PASSWORD 
-          valueFrom:
-            configMapKeyRef:
-              name: config-wp     
-              key: WORDPRESS_DATABASE_PASSWORD
-        - name: WORDPRESS_DATABASE_HOST 
-          valueFrom:
-            configMapKeyRef:
-              name: config-wp     
-              key: WORDPRESS_DATABASE_HOST
-        - name: MYSQL_ROOT_PASSWORD 
-          valueFrom:
-            configMapKeyRef:
-              name: config-mysql     
-              key: MYSQL_ROOT_PASSWORD
         ports:
         - containerPort: 80
         volumeMounts:
           - mountPath: /etc/nginx/conf.d/
-            name: log-mysql
+            name: nginx-back
       volumes:
-        - name: log-mysql
+        - name: nginx-back
           hostPath:
             path: /home/kube/nginx-conf/
 ---

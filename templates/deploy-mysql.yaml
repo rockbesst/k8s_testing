@@ -33,14 +33,6 @@ spec:
               configMapKeyRef:
                 name: config-mysql     
                 key: MYSQL_ROOT_PASSWORD
-          volumeMounts:
-          - mountPath: /var/log/nginx/mysql
-            name: log-mysql
-      volumes:
-        - name: log-mysql
-          hostPath:
-            path: /home/kube/log/mysql
-          
 ---
 apiVersion: v1
 kind: Service

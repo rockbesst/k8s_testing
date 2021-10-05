@@ -23,8 +23,8 @@ spec:
         image: {{ .Values.imageBack }}
         resources:
           limits:
-            memory: "128Mi"
-            cpu: "200m"
+            memory: {{ .Values.limits.memoryBack }}
+            cpu: {{ .Values.limits.cpuBack }}
         env:
         - name: WORDPRESS_DATABASE_NAME 
           valueFrom:

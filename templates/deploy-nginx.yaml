@@ -39,8 +39,8 @@ spec:
         image: {{ .Values.imageFront }}
         resources:
           limits:
-            memory: "128Mi"
-            cpu: "200m"
+            memory: {{ .Values.limits.memoryFront }}
+            cpu: {{ .Values.limits.cpuFront }}
         ports:
           - containerPort: 80
         volumeMounts:

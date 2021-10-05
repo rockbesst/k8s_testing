@@ -53,6 +53,13 @@ spec:
               key: MYSQL_ROOT_PASSWORD
         ports:
         - containerPort: 80
+        volumeMounts:
+          - mountPath: /etc/nginx/conf.d/
+            name: log-mysql
+      volumes:
+        - name: log-mysql
+          hostPath:
+            path: /home/kube/nginx-conf/
 ---
 apiVersion: v1
 kind: Service

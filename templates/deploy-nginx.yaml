@@ -37,6 +37,7 @@ spec:
       containers:
       - name: nginx
         image: {{ .Values.image.front }}
+        imagePullPolicy: {{ .Values.imagePullPolicy }}
         resources:
           limits:
             memory: {{ .Values.limits.memoryFront }}

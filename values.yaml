@@ -9,6 +9,7 @@ image:
   front : nginx:latest
   back  : luzifer/alpine-nginx-php
   db    : mysql:latest
+imagePullPolicy: IfNotPresent
 
 ports:
   web   : 80

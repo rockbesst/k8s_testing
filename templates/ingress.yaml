@@ -3,6 +3,8 @@ kind: Ingress
 metadata:
   name: ingress
 spec:
+  type: LoadBalancer
+  externalIPs: 172.31.71.218
   rules:
   - host: "kube.test"
     http:

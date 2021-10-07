@@ -1,7 +1,7 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: ingress-{{ .Chart.name }}{{ .Chart.version }}
+  name: ingress-{{ .Chart.Name }}{{ .Chart.Version }}
 spec:
   rules:
   - host: "kube.test"

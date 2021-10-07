@@ -11,6 +11,6 @@ spec:
         path: "/"
         backend:
           service:
-            name: {{ .Values.service.name.backend}}
+            name: backend-service-{{ .Chart.Name }}{{ .Chart.Version }}
             port:
               number: 80

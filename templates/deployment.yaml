@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: backend-{{ .Chart.name }}{{ .Chart.version }}
+  name: backend-{{ .Chart.Name }}{{ .Chart.Version }}
 spec:
   replicas: {{ .Values.replicas.back }}
   selector:
@@ -44,7 +44,7 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: mysql-{{ .Chart.name }}{{ .Chart.version }}
+  name: mysql-{{ .Chart.Name }}{{ .Chart.Version }}
 spec:
   replicas: {{ .Values.replicas.db }}
   selector:

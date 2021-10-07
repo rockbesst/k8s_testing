@@ -5,7 +5,8 @@ metadata:
   labels:
     app: {{ .Values.labels.app }}
 spec:
-  type: NodePort
+  type: LoadBalancer
+  externalIPs: 172.31.71.218
   selector:
     role: backend
   ports:

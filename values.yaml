@@ -1,20 +1,11 @@
-metadata:
-  nameFront : nginx-test
-  nameBack  : site-test
-  nameDb    : mysql-test
-  labels:
-    app: site
+labels:
+  app: site
 
 image:
   front : nginx:latest
   back  : luzifer/alpine-nginx-php
   db    : mysql:latest
 imagePullPolicy: IfNotPresent
-
-ports:
-  web   : 80
-  db    : 3306
-  front : 31000
 
 replicas:
   front : 1
@@ -33,6 +24,4 @@ limits:
 path:
   nginxConf: /etc/nginx/
   nginxLog: /var/log/nginx/
-  apacheConf: /usr/local/apache2/conf/
-  apacheLog: /var/log/apache/
   siteFiles: /var/www/

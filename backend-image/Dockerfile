@@ -1,8 +1,6 @@
 FROM trafex/php-nginx
-WORKDIR /etc/nginx/conf.d/
-COPY kube.test.conf ./
-#WORKDIR /etc/php/7.3/fpm/
-#COPY php.ini ./php.ini
+WORKDIR /etc/nginx/
+COPY nginx.conf ./
 WORKDIR /var/www/html/
 COPY ./wordpress ./
 

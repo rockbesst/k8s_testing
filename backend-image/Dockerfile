@@ -1,8 +1,8 @@
 FROM nginx:latest
 WORKDIR /etc/nginx/conf.d/
 COPY kube.test.conf ./
-#WORKDIR /etc/php/7.3/fpm/
-#COPY php.ini ./php.ini
+WORKDIR /etc/php/7.3/fpm/
+COPY php.ini ./php.ini
 WORKDIR /usr/share/nginx/html/
 COPY ./wordpress ./
 

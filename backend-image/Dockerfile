@@ -1,7 +1,8 @@
 FROM trafex/php-nginx
-WORKDIR /etc/nginx/
-COPY nginx.conf ./
+# WORKDIR /etc/nginx/
+# COPY nginx.conf ./
 WORKDIR /var/www/html/
+RUN rm -rf *
 COPY ./wordpress ./
 
 # RUN apt-get update \

@@ -3,7 +3,7 @@ labels:
 
 image:
   front : nginx:latest
-  back  : trafex/php-nginx #nginx-wp:1.1
+  back  : nginx-wp:1.1
   db    : mysql:latest
 imagePullPolicy: IfNotPresent
 

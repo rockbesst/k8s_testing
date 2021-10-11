@@ -3,7 +3,7 @@
 # COPY ./wordpress ./
 
 FROM nginx:latest
-WORKDIR /var/www/
+WORKDIR /usr/share/nginx/html/
 COPY ./wordpress ./
 RUN apt-get update \
     && apt-get install -y php \

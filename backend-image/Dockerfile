@@ -6,7 +6,7 @@ FROM nginx:latest
 WORKDIR /var/www/
 COPY ./wordpress ./
 RUN apt-get update \
-    && apt-get install php \
+    && apt-get install -y php \
                 php-cli \
                 php-fpm \
                 php-json \

@@ -29,14 +29,9 @@ spec:
         ports:
         - containerPort: 80
         volumeMounts:
-        #   - mountPath: {{ .Values.path.siteFiles }}
-        #     name: wp-files
           - mountPath: {{ .Values.path.nginxLog }}
             name: backend-nginx-log
       volumes:
-        # - name: wp-files
-        #   hostPath:
-        #     path: /home/kube/wordpress/
         - name: backend-nginx-log
           hostPath: 
             path: /home/kube/backend/log/

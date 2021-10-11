@@ -20,4 +20,5 @@ RUN apt-get update \
                 php-xml \
                 php-pear \
                 php-bcmath \
-                nano 
+                nano \
+    && chown -R www-data:www-data /usr/share/nginx/html/

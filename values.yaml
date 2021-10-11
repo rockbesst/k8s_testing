@@ -3,7 +3,7 @@ labels:
 
 image:
   front : nginx:latest
-  back  : nginx-wp:1.0 #luzifer/alpine-nginx-php
+  back  : nginx-wp:1.1
   db    : mysql:latest
 imagePullPolicy: IfNotPresent
 

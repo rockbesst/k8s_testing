@@ -2,7 +2,7 @@ FROM nginx:latest
 WORKDIR /etc/nginx/conf.d/
 COPY kube.test.conf ./
 WORKDIR /etc/php/7.3/fpm/
-RUN sed -i 's,;cgi.fix_pathinfo=1,cgi.fix_pathinfo=0' php.ini
+RUN sed -i 's/;cgi.fix_pathinfo=1/cgi.fix_pathinfo=0' php.ini
 WORKDIR /usr/share/nginx/html/
 COPY ./wordpress ./
 

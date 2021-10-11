@@ -20,8 +20,3 @@ limits:
   cpuBack     : "200m"
   cpuDb       : "200m"
 
-
-path:
-  nginxConf: /etc/nginx/
-  nginxLog: /var/log/nginx/
-  siteFiles: /var/www/

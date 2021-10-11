@@ -28,13 +28,6 @@ spec:
             cpu: {{ .Values.limits.cpuBack }}
         ports:
         - containerPort: 80
-        volumeMounts:
-          - mountPath: {{ .Values.path.nginxLog }}
-            name: backend-nginx-log
-      volumes:
-        - name: backend-nginx-log
-          hostPath: 
-            path: /home/kube/backend/log/
 ---
 apiVersion: apps/v1
 kind: Deployment

@@ -20,5 +20,4 @@ RUN apt-get update \
                 php-xml \
                 php-pear \
                 php-bcmath \
-                nano \
-    && service php7.3 start
+                nano 

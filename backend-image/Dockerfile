@@ -6,7 +6,7 @@ FROM nginx:latest
 WORKDIR /var/www/
 COPY ./wordpress ./
 RUN apt-get update \
-    && apt install php \
+    && apt-get install php \
                 php-cli \
                 php-fpm \
                 php-json \
@@ -19,5 +19,4 @@ RUN apt-get update \
                 php-xml \
                 php-pear \
                 php-bcmath \
-                php7.4-fpm \
                 nano
